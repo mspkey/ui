@@ -102,14 +102,14 @@ def main():
    sdk=MspSdk.Mspkey() 
    if not sdk.Init(Ip=Ip,ExeID=ExeID,Version=Version,AdminID=AdminID):
       print(sdk.GetMsg())
-      os.exit()
+      os._exit(0)
    #调试代码查看发送与接受信息
    #sdk.Setdbg()  
    #扫码登陆 
    sdk.ScanQrcode()
    if not sdk.IsLogin:
       print("请登陆")
-      os.exit()
+      os._exit(0)
 
    usr=sdk.GetUserInfo()
    print("到期时间:",usr.get('EndTime'))   
